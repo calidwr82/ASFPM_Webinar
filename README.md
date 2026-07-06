@@ -16,15 +16,21 @@ Blacksburg, VA study area and produce flood depth rasters for the **100-year
 flood event**, with:
 
 - **No culvert burn**
-- **500 ft × 500 ft computational mesh**
+- **No break lines**
+- **10-meter DEM** terrain
+- **100 ft × 100 ft computational mesh**
 
 ---
 
 ## What you need
 
 - A modern web browser
-- The **`project_boundary.geojson`** file from this repository
-  ([download it here](./project_boundary.geojson))
+- The **`project_boundary.geojson`** link from this repository (you'll paste it
+  directly into the agent chatbox — no download required):
+
+  ```
+  https://github.com/neeraip/ASFPM_Webinar/blob/main/project_boundary.geojson
+  ```
 - *(Optional)* A local install of [HEC-RAS](https://www.hec.usace.army.mil/software/hec-ras/)
   if you'd like to run the model on your own machine instead of on the platform
 
@@ -56,20 +62,23 @@ AI agent lives and where your data and models will appear.
 
 ### 5. Upload the project boundary
 
-1. Download **[`project_boundary.geojson`](./project_boundary.geojson)** from
-   this repository to your computer.
-2. In the project workspace, ask the agent to upload the file, for example:
+1. Copy the project boundary GeoJSON link from this repository:
 
-   > **Upload this project boundary GeoJSON file.**
+   ```
+   https://github.com/neeraip/ASFPM_Webinar/blob/main/project_boundary.geojson
+   ```
+2. In the project workspace, paste the link into the agent chatbox and ask the
+   agent to upload it, for example:
 
-   Attach / select the `project_boundary.geojson` file when prompted.
+   > **Upload this project boundary GeoJSON to the project:
+   > https://github.com/neeraip/ASFPM_Webinar/blob/main/project_boundary.geojson**
 
 ### 6. Ask the agent to create the HEC-RAS 2D model
 
 With the boundary uploaded, ask the agent to build the model. Use a prompt like:
 
-> **Create a HEC-RAS 2D model for the 100-year flood event, with no culvert
-> burn, using a 500 ft by 500 ft mesh.**
+> **Create a HEC-RAS 2D model for the 100-year flood event, using a 10-meter
+> DEM, with no culvert burn, no break lines, and a 100 ft by 100 ft mesh.**
 
 The agent will assemble terrain, boundary conditions, and the 2D flow area, then
 build the model to your specifications:
@@ -78,8 +87,10 @@ build the model to your specifications:
 | -------------- | --------------------- |
 | Model type     | HEC-RAS 2D            |
 | Flood event    | 100-year              |
+| Terrain (DEM)  | 10-meter              |
 | Culvert burn   | None                  |
-| Mesh cell size | 500 ft × 500 ft       |
+| Break lines    | None                  |
+| Mesh cell size | 100 ft × 100 ft       |
 
 ### 7. Run the model
 
